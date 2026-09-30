@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudHost - Web Hosting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">CloudHost</div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Fast & Reliable Web Hosting</h1>
+                <p>
+                    Launch your website with secure, high-performance hosting.
+                </p>
+
+                <div class="buttons">
+                    <a href="#pricing" class="btn primary">Get Started</a>
+                    <a href="#features" class="btn secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="section">
+            <h2>Why Choose CloudHost?</h2>
+
+            <div class="features">
+                <div class="card">
+                    <div class="icon">⚡</div>
+                    <h3>Fast Servers</h3>
+                    <p>High-performance servers for fast-loading websites.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🔒</div>
+                    <h3>Secure Hosting</h3>
+                    <p>SSL certificates and security features included.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">💬</div>
+                    <h3>24/7 Support</h3>
+                    <p>Our support team is available whenever you need help.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section pricing-section">
+            <h2>Simple Pricing</h2>
+
+            <div class="pricing-card">
+                <h3>Starter</h3>
+                <div class="price">₹199 <span>/ month</span></div>
+
+                <ul>
+                    <li>✓ 10 GB SSD Storage</li>
+                    <li>✓ Free SSL</li>
+                    <li>✓ 1 Website</li>
+                    <li>✓ 24/7 Support</li>
+                </ul>
+
+                <button class="btn primary" onclick="choosePlan()">
+                    Choose Plan
+                </button>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <h2>Contact Us</h2>
+
+            <form onsubmit="submitForm(event)">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+
+                <button type="submit" class="btn primary">
+                    Send Message
+                </button>
+            </form>
+
+            <p id="form-message"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 CloudHost. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
