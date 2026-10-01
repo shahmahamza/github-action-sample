@@ -10,15 +10,15 @@ html {
 
 body {
     font-family: Arial, sans-serif;
-    color: #1e293b;
-    background: #f8fafc;
+    color: #272343;
+    background: #faf7ff;
     line-height: 1.6;
 }
 
 /* Navbar */
 
 header {
-    background: #0f172a;
+    background: #211a3a;
     color: white;
     position: sticky;
     top: 0;
@@ -37,7 +37,7 @@ header {
 .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #38bdf8;
+    color: #c084fc;
 }
 
 .nav-links {
@@ -47,12 +47,13 @@ header {
 }
 
 .nav-links a {
-    color: white;
+    color: #f5f3ff;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
-    color: #38bdf8;
+    color: #c084fc;
 }
 
 .menu-btn {
@@ -76,7 +77,7 @@ header {
     color: white;
 
     background:
-        linear-gradient(135deg, #0f172a, #0369a1);
+        linear-gradient(135deg, #211a3a, #6d28d9, #9333ea);
 }
 
 .hero-content {
@@ -91,7 +92,7 @@ header {
 .hero p {
     font-size: 20px;
     margin-bottom: 30px;
-    color: #dbeafe;
+    color: #ede9fe;
 }
 
 .buttons {
@@ -104,7 +105,7 @@ header {
     display: inline-block;
     border: none;
     padding: 13px 25px;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
     text-decoration: none;
@@ -112,21 +113,23 @@ header {
 }
 
 .primary {
-    background: #0ea5e9;
+    background: #a855f7;
     color: white;
 }
 
 .primary:hover {
-    background: #0284c7;
+    background: #9333ea;
+    transform: translateY(-2px);
 }
 
 .secondary {
     background: white;
-    color: #0f172a;
+    color: #4c1d95;
 }
 
 .secondary:hover {
-    background: #e2e8f0;
+    background: #f3e8ff;
+    transform: translateY(-2px);
 }
 
 /* Sections */
@@ -141,6 +144,7 @@ header {
 .section h2 {
     font-size: 35px;
     margin-bottom: 40px;
+    color: #2e1065;
 }
 
 /* Features */
@@ -152,10 +156,17 @@ header {
 }
 
 .card {
-    background: white;
+    background: #ffffff;
     padding: 35px 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    border: 1px solid #e9d5ff;
+    box-shadow: 0 8px 25px rgba(88, 28, 135, 0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(88, 28, 135, 0.15);
 }
 
 .icon {
@@ -165,12 +176,13 @@ header {
 
 .card h3 {
     margin-bottom: 10px;
+    color: #4c1d95;
 }
 
 /* Pricing */
 
 .pricing-section {
-    background: #f1f5f9;
+    background: #f3e8ff;
     max-width: none;
 }
 
@@ -179,20 +191,21 @@ header {
     margin: auto;
     padding: 40px;
     background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+    border: 1px solid #e9d5ff;
+    box-shadow: 0 10px 30px rgba(88, 28, 135, 0.12);
 }
 
 .price {
     font-size: 40px;
     font-weight: bold;
-    color: #0284c7;
+    color: #9333ea;
     margin: 20px 0;
 }
 
 .price span {
     font-size: 16px;
-    color: #64748b;
+    color: #7c6f91;
 }
 
 .pricing-card ul {
@@ -203,6 +216,7 @@ header {
 
 .pricing-card li {
     padding: 8px 0;
+    color: #4b4560;
 }
 
 /* Contact */
@@ -219,9 +233,19 @@ input,
 textarea {
     width: 100%;
     padding: 14px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
+    border: 1px solid #d8b4fe;
+    border-radius: 10px;
     font-size: 16px;
+    background: #ffffff;
+    color: #272343;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #9333ea;
+    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.12);
 }
 
 textarea {
@@ -231,15 +255,15 @@ textarea {
 
 #form-message {
     margin-top: 20px;
-    color: #16a34a;
+    color: #7e22ce;
     font-weight: bold;
 }
 
 /* Footer */
 
 footer {
-    background: #0f172a;
-    color: white;
+    background: #211a3a;
+    color: #ede9fe;
     text-align: center;
     padding: 25px;
 }
@@ -254,7 +278,7 @@ footer {
         top: 65px;
         left: 0;
         width: 100%;
-        background: #0f172a;
+        background: #211a3a;
         flex-direction: column;
         text-align: center;
         padding: 20px;
