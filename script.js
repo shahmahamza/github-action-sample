@@ -1,103 +1,167 @@
-// =========================
+// ============================
 // MOBILE MENU
-// =========================
+// ============================
 
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
-menuBtn.addEventListener("click", function () {
+menuBtn.addEventListener("click", () => {
+
     navLinks.classList.toggle("active");
 
     if (navLinks.classList.contains("active")) {
-        menuBtn.innerHTML = "✕";
+        menuBtn.textContent = "✕";
     } else {
-        menuBtn.innerHTML = "☰";
+        menuBtn.textContent = "☰";
     }
+
 });
 
 
-// Close mobile menu after clicking a link
+// Close menu when clicking a link
 
-const links = document.querySelectorAll(".nav-links a");
+document.querySelectorAll(".nav-links a").forEach(link => {
 
-links.forEach(function (link) {
-
-    link.addEventListener("click", function () {
+    link.addEventListener("click", () => {
 
         navLinks.classList.remove("active");
 
-        menuBtn.innerHTML = "☰";
+        menuBtn.textContent = "☰";
 
     });
 
 });
 
 
-// =========================
-// CONTACT FORM
-// =========================
+// ============================
+// DOMAIN SEARCH
+// ============================
 
-const contactForm = document.getElementById("contactForm");
-const formMessage = document.getElementById("formMessage");
+const domainForm = document.getElementById("domainForm");
+const domainInput = document.getElementById("domainInput");
+const domainExtension = document.getElementById("domainExtension");
+const domainResult = document.getElementById("domainResult");
 
-contactForm.addEventListener("submit", function (event) {
+domainForm.addEventListener("submit", (event) => {
 
     event.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+    let domain = domainInput.value.trim();
 
-    if (name === "" || email === "" || message === "") {
+    // Remove existing extensions
+    domain = domain
+        .replace(".com", "")
+        .replace(".in", "")
+        .replace(".net", "")
+        .replace(".org", "");
 
-        formMessage.textContent = "Please fill in all fields.";
-        formMessage.style.color = "#e11d48";
+    if (domain === "") {
+
+        domainResult.textContent =
+            "Please enter a domain name.";
 
         return;
     }
 
-    formMessage.textContent =
-        "Thank you, " + name + "! Your message has been sent successfully 💖";
+    const fullDomain =
+        domain + domainExtension.value;
 
-    formMessage.style.color = "#8b2fc9";
+    domainResult.textContent =
+        "🎉 " + fullDomain +
+        " is available for this demo!";
+
+});
+
+
+// ============================
+// PRICING BUTTONS
+// ============================
+
+const priceButtons =
+    document.querySelectorAll(".price-btn");
+
+priceButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const plan =
+            button.parentElement.querySelector("h3").textContent;
+
+        alert(
+            "You selected the " +
+            plan +
+            " hosting plan! 🚀"
+        );
+
+    });
+
+});
+
+
+// ============================
+// CONTACT FORM
+// ============================
+
+const contactForm =
+    document.getElementById("contactForm");
+
+const formMessage =
+    document.getElementById("formMessage");
+
+contactForm.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const message =
+        document.getElementById("message").value.trim();
+
+
+    if (!name || !email || !message) {
+
+        formMessage.style.color = "#dc2626";
+
+        formMessage.textContent =
+            "Please fill in all fields.";
+
+        return;
+    }
+
+
+    formMessage.style.color = "#16a34a";
+
+    formMessage.textContent =
+        "Thanks, " +
+        name +
+        "! Your message has been received. 🎉";
+
 
     contactForm.reset();
 
 });
 
 
-// =========================
-// PRICING BUTTON
-// =========================
-
-const priceBtn = document.getElementById("priceBtn");
-
-priceBtn.addEventListener("click", function () {
-
-    alert(
-        "Thank you for choosing Shahma Premium! 💜\n\nWe will contact you soon."
-    );
-
-});
-
-
-// =========================
-// SCROLL ANIMATION
-// =========================
+// ============================
+// SCROLL REVEAL
+// ============================
 
 const cards = document.querySelectorAll(
-    ".about-card, .feature-card, .pricing-card"
+    ".feature-card, .price-card"
 );
 
 const observer = new IntersectionObserver(
-    function (entries) {
+    (entries) => {
 
-        entries.forEach(function (entry) {
+        entries.forEach(entry => {
 
             if (entry.isIntersecting) {
 
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
+                entry.target.classList.add("show");
 
             }
 
@@ -110,12 +174,30 @@ const observer = new IntersectionObserver(
 );
 
 
-cards.forEach(function (card) {
+cards.forEach(card => {
 
     card.style.opacity = "0";
-    card.style.transform = "translateY(40px)";
-    card.style.transition = "all 0.7s ease";
+
+    card.style.transform = "translateY(30px)";
+
+    card.style.transition =
+        "opacity 0.6s ease, transform 0.6s ease";
 
     observer.observe(card);
 
 });
+
+
+// Add animation class
+
+const style = document.createElement("style");
+
+style.textContent = `
+    .feature-card.show,
+    .price-card.show {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+`;
+
+document.head.appendChild(style);
