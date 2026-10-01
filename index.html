@@ -1,306 +1,121 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+// =========================
+// MOBILE MENU
+// =========================
 
-html {
-    scroll-behavior: smooth;
-}
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
 
-body {
-    font-family: Arial, sans-serif;
-    color: #272343;
-    background: #faf7ff;
-    line-height: 1.6;
-}
+menuBtn.addEventListener("click", function () {
+    navLinks.classList.toggle("active");
 
-/* Navbar */
+    if (navLinks.classList.contains("active")) {
+        menuBtn.innerHTML = "✕";
+    } else {
+        menuBtn.innerHTML = "☰";
+    }
+});
 
-header {
-    background: #211a3a;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
 
-.navbar {
-    max-width: 1100px;
-    margin: auto;
-    padding: 18px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+// Close mobile menu after clicking a link
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #c084fc;
-}
+const links = document.querySelectorAll(".nav-links a");
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-}
+links.forEach(function (link) {
 
-.nav-links a {
-    color: #f5f3ff;
-    text-decoration: none;
-    transition: 0.3s;
-}
+    link.addEventListener("click", function () {
 
-.nav-links a:hover {
-    color: #c084fc;
-}
+        navLinks.classList.remove("active");
 
-.menu-btn {
-    display: none;
-    background: none;
-    color: white;
-    border: none;
-    font-size: 25px;
-    cursor: pointer;
-}
+        menuBtn.innerHTML = "☰";
 
-/* Hero */
+    });
 
-.hero {
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 20px;
-    color: white;
+});
 
-    background:
-        linear-gradient(135deg, #211a3a, #6d28d9, #9333ea);
-}
 
-.hero-content {
-    max-width: 750px;
-}
+// =========================
+// CONTACT FORM
+// =========================
 
-.hero h1 {
-    font-size: 52px;
-    margin-bottom: 20px;
-}
+const contactForm = document.getElementById("contactForm");
+const formMessage = document.getElementById("formMessage");
 
-.hero p {
-    font-size: 20px;
-    margin-bottom: 30px;
-    color: #ede9fe;
-}
+contactForm.addEventListener("submit", function (event) {
 
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
+    event.preventDefault();
 
-.btn {
-    display: inline-block;
-    border: none;
-    padding: 13px 25px;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: 0.3s;
-}
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-.primary {
-    background: #a855f7;
-    color: white;
-}
+    if (name === "" || email === "" || message === "") {
 
-.primary:hover {
-    background: #9333ea;
-    transform: translateY(-2px);
-}
+        formMessage.textContent = "Please fill in all fields.";
+        formMessage.style.color = "#e11d48";
 
-.secondary {
-    background: white;
-    color: #4c1d95;
-}
-
-.secondary:hover {
-    background: #f3e8ff;
-    transform: translateY(-2px);
-}
-
-/* Sections */
-
-.section {
-    max-width: 1100px;
-    margin: auto;
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.section h2 {
-    font-size: 35px;
-    margin-bottom: 40px;
-    color: #2e1065;
-}
-
-/* Features */
-
-.features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.card {
-    background: #ffffff;
-    padding: 35px 25px;
-    border-radius: 16px;
-    border: 1px solid #e9d5ff;
-    box-shadow: 0 8px 25px rgba(88, 28, 135, 0.08);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 30px rgba(88, 28, 135, 0.15);
-}
-
-.icon {
-    font-size: 40px;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    margin-bottom: 10px;
-    color: #4c1d95;
-}
-
-/* Pricing */
-
-.pricing-section {
-    background: #f3e8ff;
-    max-width: none;
-}
-
-.pricing-card {
-    max-width: 380px;
-    margin: auto;
-    padding: 40px;
-    background: white;
-    border-radius: 18px;
-    border: 1px solid #e9d5ff;
-    box-shadow: 0 10px 30px rgba(88, 28, 135, 0.12);
-}
-
-.price {
-    font-size: 40px;
-    font-weight: bold;
-    color: #9333ea;
-    margin: 20px 0;
-}
-
-.price span {
-    font-size: 16px;
-    color: #7c6f91;
-}
-
-.pricing-card ul {
-    list-style: none;
-    text-align: left;
-    margin-bottom: 25px;
-}
-
-.pricing-card li {
-    padding: 8px 0;
-    color: #4b4560;
-}
-
-/* Contact */
-
-form {
-    max-width: 600px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-input,
-textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #d8b4fe;
-    border-radius: 10px;
-    font-size: 16px;
-    background: #ffffff;
-    color: #272343;
-    outline: none;
-    transition: 0.3s;
-}
-
-input:focus,
-textarea:focus {
-    border-color: #9333ea;
-    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.12);
-}
-
-textarea {
-    height: 150px;
-    resize: vertical;
-}
-
-#form-message {
-    margin-top: 20px;
-    color: #7e22ce;
-    font-weight: bold;
-}
-
-/* Footer */
-
-footer {
-    background: #211a3a;
-    color: #ede9fe;
-    text-align: center;
-    padding: 25px;
-}
-
-/* Mobile */
-
-@media (max-width: 768px) {
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 65px;
-        left: 0;
-        width: 100%;
-        background: #211a3a;
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
+        return;
     }
 
-    .nav-links.active {
-        display: flex;
-    }
+    formMessage.textContent =
+        "Thank you, " + name + "! Your message has been sent successfully 💖";
 
-    .menu-btn {
-        display: block;
-    }
+    formMessage.style.color = "#8b2fc9";
 
-    .hero h1 {
-        font-size: 38px;
-    }
+    contactForm.reset();
 
-    .features {
-        grid-template-columns: 1fr;
-    }
+});
 
-    .buttons {
-        flex-direction: column;
+
+// =========================
+// PRICING BUTTON
+// =========================
+
+const priceBtn = document.getElementById("priceBtn");
+
+priceBtn.addEventListener("click", function () {
+
+    alert(
+        "Thank you for choosing Shahma Premium! 💜\n\nWe will contact you soon."
+    );
+
+});
+
+
+// =========================
+// SCROLL ANIMATION
+// =========================
+
+const cards = document.querySelectorAll(
+    ".about-card, .feature-card, .pricing-card"
+);
+
+const observer = new IntersectionObserver(
+    function (entries) {
+
+        entries.forEach(function (entry) {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.15
     }
-}
+);
+
+
+cards.forEach(function (card) {
+
+    card.style.opacity = "0";
+    card.style.transform = "translateY(40px)";
+    card.style.transition = "all 0.7s ease";
+
+    observer.observe(card);
+
+});
