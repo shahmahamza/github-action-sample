@@ -10,89 +10,147 @@ html {
 
 body {
     font-family: Arial, sans-serif;
-    color: #272343;
-    background: #faf7ff;
+    color: #30204d;
+    background: #fff9fe;
     line-height: 1.6;
 }
 
-/* Navbar */
+/* =========================
+   NAVBAR
+========================= */
 
 header {
-    background: #211a3a;
-    color: white;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 3px 20px rgba(100, 50, 150, 0.08);
 }
 
 .navbar {
-    max-width: 1100px;
+    max-width: 1150px;
     margin: auto;
-    padding: 18px 20px;
+    padding: 18px 25px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
-    color: #c084fc;
+    color: #8b2fc9;
+}
+
+.logo span,
+.footer-logo span {
+    color: #ff4f9a;
 }
 
 .nav-links {
     display: flex;
+    gap: 28px;
     list-style: none;
-    gap: 25px;
 }
 
 .nav-links a {
-    color: #f5f3ff;
+    color: #30204d;
     text-decoration: none;
+    font-weight: 600;
     transition: 0.3s;
 }
 
 .nav-links a:hover {
-    color: #c084fc;
+    color: #ff4f9a;
 }
 
 .menu-btn {
     display: none;
-    background: none;
-    color: white;
     border: none;
-    font-size: 25px;
+    background: transparent;
+    font-size: 28px;
     cursor: pointer;
+    color: #8b2fc9;
 }
 
-/* Hero */
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
-    min-height: 600px;
+    min-height: 650px;
+    position: relative;
+    overflow: hidden;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 20px;
+
     color: white;
 
     background:
-        linear-gradient(135deg, #211a3a, #6d28d9, #9333ea);
+        linear-gradient(
+            135deg,
+            #7b2ff7,
+            #c02bff,
+            #ff4f9a,
+            #ff8a4c
+        );
+
+    background-size: 300% 300%;
+    animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .hero-content {
-    max-width: 750px;
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+}
+
+.hello {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 8px 18px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(5px);
 }
 
 .hero h1 {
-    font-size: 52px;
-    margin-bottom: 20px;
+    font-size: 65px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #ffe66d;
 }
 
 .hero p {
     font-size: 20px;
-    margin-bottom: 30px;
-    color: #ede9fe;
+    max-width: 650px;
+    margin: auto;
+    margin-bottom: 35px;
+    color: #fff4ff;
 }
 
 .buttons {
@@ -103,127 +161,262 @@ header {
 
 .btn {
     display: inline-block;
+    padding: 14px 28px;
+    border-radius: 50px;
+
     border: none;
-    padding: 13px 25px;
-    border-radius: 10px;
+
     font-size: 16px;
+    font-weight: bold;
+
     cursor: pointer;
     text-decoration: none;
+
     transition: 0.3s;
 }
 
 .primary {
-    background: #a855f7;
-    color: white;
+    background: #ffe66d;
+    color: #4c1d5f;
 }
 
 .primary:hover {
-    background: #9333ea;
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .secondary {
     background: white;
-    color: #4c1d95;
+    color: #8b2fc9;
 }
 
 .secondary:hover {
-    background: #f3e8ff;
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    background: #fff1fa;
 }
 
-/* Sections */
+
+/* Decorative circles */
+
+.hero-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.25;
+}
+
+.circle-one {
+    width: 300px;
+    height: 300px;
+    background: #ffe66d;
+    top: -100px;
+    left: -100px;
+}
+
+.circle-two {
+    width: 400px;
+    height: 400px;
+    background: #00e5ff;
+    bottom: -200px;
+    right: -100px;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
 
 .section {
-    max-width: 1100px;
+    max-width: 1150px;
     margin: auto;
-    padding: 80px 20px;
+    padding: 90px 25px;
+}
+
+.section-title {
     text-align: center;
+    margin-bottom: 50px;
 }
 
-.section h2 {
-    font-size: 35px;
-    margin-bottom: 40px;
-    color: #2e1065;
+.section-title p {
+    color: #ff4f9a;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
 }
 
-/* Features */
+.section-title h2 {
+    font-size: 38px;
+    color: #382052;
+}
 
-.features {
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    background: #fff9fe;
+}
+
+.about-content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
-.card {
-    background: #ffffff;
-    padding: 35px 25px;
-    border-radius: 16px;
-    border: 1px solid #e9d5ff;
-    box-shadow: 0 8px 25px rgba(88, 28, 135, 0.08);
+.about-card {
+    background: white;
+    padding: 40px 25px;
+    text-align: center;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 10px 30px rgba(100, 50, 150, 0.08);
+
     transition: 0.3s;
 }
 
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 30px rgba(88, 28, 135, 0.15);
+.about-card:hover {
+    transform: translateY(-10px);
 }
 
-.icon {
-    font-size: 40px;
+.about-icon {
+    font-size: 50px;
     margin-bottom: 15px;
 }
 
-.card h3 {
+.about-card h3 {
+    color: #8b2fc9;
     margin-bottom: 10px;
-    color: #4c1d95;
 }
 
-/* Pricing */
+
+/* =========================
+   FEATURES
+========================= */
+
+.features-section {
+    max-width: none;
+    background: #f8edff;
+}
+
+.features {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.feature-card {
+    padding: 40px 30px;
+    border-radius: 25px;
+    color: white;
+
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px) rotate(1deg);
+}
+
+.feature-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.pink {
+    background: linear-gradient(135deg, #ff4f9a, #ff758c);
+}
+
+.purple {
+    background: linear-gradient(135deg, #7b2ff7, #b14cff);
+}
+
+.blue {
+    background: linear-gradient(135deg, #00b4db, #0083b0);
+}
+
+
+/* =========================
+   PRICING
+========================= */
 
 .pricing-section {
-    background: #f3e8ff;
-    max-width: none;
+    text-align: center;
 }
 
 .pricing-card {
-    max-width: 380px;
+    max-width: 400px;
     margin: auto;
-    padding: 40px;
+
+    padding: 45px 35px;
+
     background: white;
-    border-radius: 18px;
-    border: 1px solid #e9d5ff;
-    box-shadow: 0 10px 30px rgba(88, 28, 135, 0.12);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 15px 45px rgba(100, 50, 150, 0.15);
+
+    border: 3px solid #f0cfff;
+}
+
+.price-icon {
+    font-size: 55px;
+}
+
+.pricing-card h3 {
+    font-size: 25px;
+    margin-top: 10px;
+    color: #8b2fc9;
 }
 
 .price {
-    font-size: 40px;
+    font-size: 45px;
     font-weight: bold;
-    color: #9333ea;
+    color: #ff4f9a;
     margin: 20px 0;
 }
 
 .price span {
-    font-size: 16px;
-    color: #7c6f91;
+    font-size: 15px;
+    color: #777;
 }
 
 .pricing-card ul {
     list-style: none;
     text-align: left;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .pricing-card li {
-    padding: 8px 0;
-    color: #4b4560;
+    padding: 9px 0;
+    color: #555;
 }
 
-/* Contact */
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-section {
+    text-align: center;
+    background: #fff4fb;
+    max-width: none;
+}
 
 form {
-    max-width: 600px;
+    max-width: 650px;
     margin: auto;
+
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -232,56 +425,85 @@ form {
 input,
 textarea {
     width: 100%;
-    padding: 14px;
-    border: 1px solid #d8b4fe;
-    border-radius: 10px;
+    padding: 16px;
+
+    border: 2px solid #f0d5f8;
+    border-radius: 15px;
+
     font-size: 16px;
-    background: #ffffff;
-    color: #272343;
+
     outline: none;
+
+    background: white;
+
     transition: 0.3s;
 }
 
 input:focus,
 textarea:focus {
-    border-color: #9333ea;
-    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.12);
+    border-color: #c02bff;
+    box-shadow: 0 0 0 4px rgba(192,43,255,0.1);
 }
 
 textarea {
-    height: 150px;
+    min-height: 160px;
     resize: vertical;
 }
 
-#form-message {
-    margin-top: 20px;
-    color: #7e22ce;
+#formMessage {
     font-weight: bold;
+    color: #8b2fc9;
 }
 
-/* Footer */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
-    background: #211a3a;
-    color: #ede9fe;
+    background: #30164d;
+    color: white;
     text-align: center;
-    padding: 25px;
+    padding: 35px 20px;
 }
 
-/* Mobile */
+.footer-logo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.copyright {
+    margin-top: 10px;
+    color: #d9c8e5;
+    font-size: 14px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 768px) {
 
     .nav-links {
         display: none;
+
         position: absolute;
-        top: 65px;
+        top: 70px;
         left: 0;
+
         width: 100%;
-        background: #211a3a;
+
+        padding: 25px;
+
+        background: white;
+
         flex-direction: column;
+
         text-align: center;
-        padding: 20px;
+
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
     }
 
     .nav-links.active {
@@ -292,15 +514,33 @@ footer {
         display: block;
     }
 
-    .hero h1 {
-        font-size: 38px;
+    .hero {
+        min-height: 600px;
     }
 
-    .features {
-        grid-template-columns: 1fr;
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 17px;
     }
 
     .buttons {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 220px;
+    }
+
+    .about-content,
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
     }
 }
